@@ -1,0 +1,37 @@
+{% extends "base.html" %} {% block content %}
+<header class="site-header">
+    <a class="brand" href="/">ニコ</a>
+    <div class="sublabel">私は日本人じゃないです</div>
+</header>
+
+<main class="container">
+    {% if page is defined %}
+    <article class="post list-item">
+        <h1 class="post-title">{{ page.title }}</h1>
+        <div class="post-content">{{ page.content | safe }}</div>
+    </article>
+    {% else %} {# If there's a posts section, show recent posts sorted by date
+    desc #} {%- set posts_section = get_section(path="posts/_index.md") -%} {%-
+    if posts_section is defined and posts_section.pages | length > 0 -%}
+    <h2 class="post-title">Latest posts</h2>
+    {% for p in posts_section.pages %}
+    <a href="{{ p.permalink }}" class="list-item">
+        <h3 class="post-title">{{ p.title }}</h3>
+        <div class="post-meta">{{ p.date | date(format="%Y-%m-%d") }}</div>
+        <div class="post-content">{{ p.description | safe }}</div>
+    </a>
+    {% endfor %} {% else %}
+    <article class="post list-item">
+        <h1 class="post-title">{{ section.title }}</h1>
+        <div class="post-content">
+            {{ section.content | safe }} {% if section.content is not defined or
+            section.content | length == 0 %}
+            <div class="post-meta">{{ section.description }}</div>
+            {% endif %}
+        </div>
+    </article>
+    {% endif %} {% endif %}
+
+    <p><a href="/posts/">See all posts</a></p>
+</main>
+{% endblock content %}

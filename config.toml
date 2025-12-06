@@ -1,0 +1,28 @@
+# The base URL of the site
+base_url = "https://ニコ.com"
+
+# The site title and description
+title = "ニコ"
+description = "私は日本人じゃないです"
+
+# The default language
+default_language = "ja"
+
+# Whether to automatically compile all Sass files in the sass directory
+compile_sass = true
+
+# Whether to build a search index to be used later on by a JavaScript library
+build_search_index = false
+
+# The taxonomies to be rendered for the site and their configuration
+taxonomies = []
+
+[markdown]
+# Whether to do syntax highlighting
+highlight_code = false
+# Automatically insert anchor links next to headings.
+# Options: "left", "right", "heading", or "false"
+insert_anchor_links = "left"
+
+[extra]
+# Put any custom variables you want here
