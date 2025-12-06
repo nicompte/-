@@ -1,0 +1,16 @@
+{% extends "base.html" %} {% block extra_head %} {%- if page is not defined -%}
+<script>
+    if (location.pathname === "/" || location.pathname === "") {
+        location.replace("/posts/");
+    }
+</script>
+<noscript
+    ><meta http-equiv="refresh" content="0;url=/posts/" /><link
+        rel="canonical"
+        href="/posts/"
+/></noscript>
+{%- endif -%} {% endblock extra_head %} {% block content %}
+<main class="container">
+    <p><a href="/posts/">See all posts</a></p>
+</main>
+{% endblock content %}

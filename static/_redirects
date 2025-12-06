@@ -1,0 +1,5 @@
+# Cloudflare Pages redirect rules
+# Permanently redirect the site root (and index.html) to /posts/
+# Format: <from> <to> <status>
+/    /posts/    301
+/index.html    /posts/    301
